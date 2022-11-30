@@ -58,12 +58,16 @@ public class MovieRepository {
 
     public void delete(String name) {
         if (map_director.containsKey(name)) {
+            List<String> list=new ArrayList<>();
             map_director.remove(name);
             for (String s : map_director_movie.keySet()) {
                 if (map_director_movie.get(s).equals(name)) {
-                    map_movie.remove(s);
-                    map_director_movie.remove(s);
+                    list.add(s);
                 }
+            }
+            for(String i:list){
+                map_director_movie.remove(i);
+                map_movie.remove(i);
             }
         }
     }
