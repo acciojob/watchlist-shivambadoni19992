@@ -1,0 +1,22 @@
+http://localhost:8080/movies/add-movie
+http://localhost:8080/movies/add-director
+http://localhost:8080/movies/add-movie-director-pair
+http://localhost:8080/movies/get-movie-by-name/{name}
+http://localhost:8080/movies/get-director-by-name/{name}
+http://localhost:8080/movies/get-movies-by-director-name/{director}
+http://localhost:8080/movies/get-all-movies
+http://localhost:8080/movies/delete-director-by-name
+http://localhost:8080/movies/delete-all-directors
+
+
+{
+  "name": "abc",
+  "durationInMinutes": 20,
+  "imdbRating": 5
+}
+
+{
+  "name": "xyz",
+  "numberOfMovies": 5,
+  "imdbRating": 7
+}
