@@ -43,7 +43,7 @@ public class MovieRepository {
     public List<String> get_movie_bydirector(String director) {
         List<String> ans = new ArrayList<>();
         for (String s : map_director_movie.keySet()) {
-            if (map_director_movie.get(s).equalsIgnoreCase(director))
+            if (map_director_movie.get(s).equals(director))
                 ans.add(s);
         }
         return ans;
@@ -57,16 +57,19 @@ public class MovieRepository {
     }
 
     public void delete(String name) {
-        map_director.remove(name);
-        for (String s : map_director_movie.keySet()) {
-            if (map_director_movie.get(s).equalsIgnoreCase(name)) {
-                map_movie.remove(s);
-                map_director_movie.remove(s);
+        if (map_director.containsKey(name)) {
+            map_director.remove(name);
+            for (String s : map_director_movie.keySet()) {
+                if (map_director_movie.get(s).equals(name)) {
+                    map_movie.remove(s);
+                    map_director_movie.remove(s);
+                }
             }
         }
     }
 
     public void deleteAll() {
+
         for (String s : map_director_movie.keySet()) {
 
             map_movie.remove(s);
